@@ -1,20 +1,20 @@
-@container(--system: spectrum) {
+@container (--system: spectrum) and (--scale: large) {
   .component {
     --background-color: blue;
   }
-  .component.is-selected {
+  .component-Section.is-selected {
     --background-color: darkblue;
   }
   .component .icon {
-    --color: gray;
+    --color: var(--color-icon, gray);
   }
 }
 
-@container(--system: express) {
+@container (--system: express) and (height > 400px) {
   .component {
     --background-color: purple;
   }
-  .component.is-selected {
+  .component-Section.is-selected {
     --background-color: darkpurple;
   }
   .component .icon {

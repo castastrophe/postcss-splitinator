@@ -1,37 +1,55 @@
 # postcss-splitinator
+
 > Splits custom properties organized by classes into named tokens
 
 ## Installation
 
 ```sh
-npm install postcss-splitinator
+yarn add -D postcss-splitinator
+```
+
+## Usage
+
+```sh
 postcss -u postcss-splitinator -o dist/index.css src/index.css
 ```
 
 ## Options
 
-### `options.getName = function(selector, prop)`
+### createPropertyName
 
-Customize the creation of variable names. By default, as SUIT naming convention is assumed and variable names are created accordingly.
+Customize the creation of variable names. By default, as SUIT naming convention is assumed and variable names are created accordingly. Passed the selector and property that the variable was defined in, i.e. `selector = .component` and `prop = background-color` for the example below.
 
-### `options.processIdentifier = function(identifierValue, identifierName)`
+```js
+function(selector, prop) {
+  return selector + '-' + prop;
+}
+```
+
+### createClassFromContainerQuery
 
 Customize the selectors that variables are placed in. Passed the value and key of the variable that was passed to the container, i.e. `identifierValue = spectrum` and `identifierName = system` for the example below. By default, `identifierName` is used as-is.
 
-### `options.noFlatVariables = false`
+```js
+function(identifierValue, identifierName) {
+  return identifierName + '--' + identifierValue;
+}
+```
 
-Whether to avoid including flat variables in the output.
+### noFlatVariables
 
-### `options.noSelectors = false`
+Whether to avoid including flat variables in the output. Defaults to `false`.
 
-Whether to avoid including selectors that use the flat variables in the output.
+### noSelectors
 
-## Usage
+Whether to avoid including selectors that use the flat variables in the output. Defaults to `false`.
+
+## Example
 
 This plugin turns this:
 
 ```css
-@container(--system: spectrum) {
+@container (--system: spectrum) {
   .component {
     --background-color: blue;
   }
@@ -43,7 +61,7 @@ This plugin turns this:
   }
 }
 
-@container(--system: express) {
+@container (--system: express) {
   .component {
     --background-color: purple;
   }
@@ -54,7 +72,6 @@ This plugin turns this:
     --color: white;
   }
 }
-
 ```
 
 Into this:

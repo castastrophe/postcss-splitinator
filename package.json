@@ -1,12 +1,12 @@
 {
-  "private": true,
+  "private": false,
   "name": "postcss-splitinator",
   "version": "1.0.0-beta.2",
   "description": "A postcss plugin to turn container queries into alternative vars.",
   "license": "Apache-2.0",
-  "author": "Larry Davis <lazdnet@gmail.com>",
+  "author": "Cassondra Roberts <castastrophe@users.noreply.github.com> (https://allons-y.llc)",
   "contributors": [
-    "Cassondra Roberts <castastrophe@users.noreply.github.com> (https://allons-y.llc)"
+    "Larry Davis <lazdnet@gmail.com>"
   ],
   "repository": {
     "type": "git",
@@ -36,6 +36,9 @@
   ],
   "peerDependencies": {
     "postcss": "^8.0.0"
+  },
+  "dependencies": {
+    "postcss-selector-parser": "^6.0.12"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",

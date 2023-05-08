@@ -1,3 +1,10 @@
+# 1.0.0 (2023-05-08)
+
+
+### Features
+
+* init repo ([a22a4de](https://github.com/castastrophe/postcss-splitinator/commit/a22a4de8c83ee79d08a8978c334b4762b22cd592))
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
